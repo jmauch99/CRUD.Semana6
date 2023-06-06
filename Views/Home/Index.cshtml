@@ -1,0 +1,52 @@
+﻿@model List<CaminhaoModel>
+@{
+    ViewData["Title"] = "Página Inicial";
+}
+
+<div class="text-center">
+
+    <h1 class="display-6">Listagem de Caminhões</h1>
+    <br/>
+
+</div>
+
+
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Descrição</th>
+                <th scope="col">Data de Criação</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (CaminhaoModel caminhao in Model)
+                {
+                    <tr>
+                        <td>@caminhao.Nome</td>
+                        <td>@caminhao.Descricao</td>
+                        <td>@caminhao.Data</td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a role="button" class="btn btn-warning" asp-route-id="@caminhao.Id" asp-controller="Caminhao" asp-action="Editar">Editar</a>
+                                <a role="button" class="btn btn-info" asp-route-id="@caminhao.Id" asp-controller="Caminhao" asp-action="Detalhes">Detalhes</a>
+                                <a role="button" class="btn btn-danger" asp-route-id="@caminhao.Id" asp-controller="Caminhao" asp-action="ApagarConfirmacao">Excluir</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+    <br/>
+<div class="text-center">
+    <a class="btn btn-primary" role="button" asp-controller="Caminhao" asp-action="Criar">Adicionar novo Caminhão</a>
+</div>
+<br />
+
+</div>
+<br />
+</div>

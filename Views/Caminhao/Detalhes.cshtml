@@ -1,0 +1,28 @@
+﻿@model CaminhaoModel
+@{
+    ViewData["Title"] = "Detalhes do Caminhão";
+}
+<div class="text-center">
+    <h1 class="display-6">Detalhes do Caminhão @Model.Nome</h1>
+    <br/>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Identificação</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Descrição</th>
+                <th scope="col">Data de Criação</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.Id</td>
+                <td>@Model.Nome</td>
+                <td>@Model.Descricao</td>
+                <td>@Model.Data</td>
+            </tr>
+        </tbody>
+    </table>
+    <a class="btn btn-success btn-block" asp-controller="Home" asp-action="Index" role="button">Voltar</a>
+</div>

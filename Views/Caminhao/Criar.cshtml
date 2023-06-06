@@ -1,0 +1,26 @@
+﻿@model CaminhaoModel
+@{
+    ViewData["Title"] = "Adicionar novo caminhão";
+}
+
+<div class="text-center">
+    <h1 class="display-6">Cadastrar novo caminhão</h1>
+    <br/>
+
+</div>
+
+<form asp-controller="Caminhao" asp-action="Criar" method="post">
+    <div class="form-group">
+        <label for="Nome">Nome</label>
+        <input type="text" asp-for="Nome" class="form-control" placeholder="Digite o nome do Caminhão">
+        @Html.ValidationMessageFor(x => x.Nome)
+    </div>
+    <div class="form-group">
+        <label for="Descricao">Descrição</label>
+        <input type="text" asp-for="Descricao" class="form-control" placeholder="Digite a descrição do Caminhão">
+        @Html.ValidationMessageFor(x => x.Descricao)
+    </div>
+
+    <button type="submit" class="btn btn-success btn-block">Adicionar</button>
+    <a class="btn btn-warning btn-block" asp-controller="Home" asp-action="Index" role="button">Voltar</a>
+</form>
